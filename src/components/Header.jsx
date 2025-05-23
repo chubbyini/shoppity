@@ -1,7 +1,9 @@
+import { useCart } from '../Context/CartContext'
 import logo from '/vite.svg'
 import { Link, NavLink } from 'react-router-dom'
 
 export const Header = () => {
+  const {cartList} = useCart()
   return (
     <header className="flex justify-between items-center h-[70px] max-w-[1200px] mx-auto border-b border-[#EEEEEE] text-[18px] px-[10px]">
       <Link to="/" className="flex items-center gap-2">
@@ -26,7 +28,7 @@ export const Header = () => {
       </nav>
 
       <Link to="/cart" className="font-medium">
-        <span>cart: 2</span>
+        <span>cart: {cartList.length}</span>
       </Link>
     </header>
   )
